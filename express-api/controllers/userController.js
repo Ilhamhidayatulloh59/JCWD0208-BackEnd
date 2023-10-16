@@ -1,8 +1,6 @@
-const data = [
-    { id: 1, username: 'User 1', password: "Asd" },
-    { id: 2, username: 'User 2', password: "Asd" },
-    { id: 3, username: 'User 3', password: "Asd" },
-]
+const fs = require('fs')
+
+const data = JSON.parse(fs.readFileSync('./db.json', 'utf-8')) 
 
 module.exports = {
     getAll: (req, res) => {
@@ -17,15 +15,17 @@ module.exports = {
         }
     },
     register: (req, res) => {
-        const id = Math.max(...data.map(item => item.id)) + 1
+        const id = data.length ? Math.max(...data.map(item => item.id)) + 1 : 1
         req.body.id = id
         data.push(req.body)
+        fs.writeFileSync('./db.json', JSON.stringify(data), 'utf-8')
         res.status(200).send("Register success")
     },
     deleteById: (req, res) => {
         const idx = data.findIndex(item => item.id == req.params.id)
         if (idx >= 0) {
             data.splice(idx, 1)
+            fs.writeFileSync('./db.json', JSON.stringify(data), 'utf-8')
             res.status(200).send(data)
         } else {
             res.status(400).send({ message: 'User not found' })
@@ -38,6 +38,7 @@ module.exports = {
 
         if (userIndex !== -1) {
             data[userIndex] = { ...data[userIndex], ...updateData };
+            fs.writeFileSync('./db.json', JSON.stringify(data), 'utf-8')
             res.status(200).send(data[userIndex]);
         } else {
             res.status(400).send({ message: 'User not found' });
