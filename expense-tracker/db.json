@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Fried Rice",
+    "nominal": 15000,
+    "category": "Food",
+    "date": "09-01-2023"
+  },
+  {
+    "id": 2,
+    "name": "Electricity",
+    "nominal": 150000,
+    "category": "Primary",
+    "date": "09-01-2023"
+  },
+  {
+    "id": 3,
+    "name": "Fuel",
+    "nominal": 200000,
+    "category": "Transportation",
+    "date": "09-15-2023"
+  },
+  {
+    "id": 4,
+    "name": "Fruits",
+    "nominal": 10000,
+    "category": "Food",
+    "date": "10-01-2023"
+  },
+  {
+    "id": 5,
+    "name": "Water",
+    "nominal": 20000,
+    "category": "Primary",
+    "date": "10-05-2023"
+  },
+  {
+    "name": "Sushi",
+    "nominal": 180000,
+    "category": "Food",
+    "id": 6,
+    "date": "10-10-2023"
+  },
+  {
+    "name": "Fried Noodle",
+    "nominal": 10000,
+    "category": "Food",
+    "id": 7,
+    "date": "10-17-2023"
+  }
+]
